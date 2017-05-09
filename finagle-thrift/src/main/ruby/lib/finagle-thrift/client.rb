@@ -25,11 +25,7 @@ module FinagleThrift
 
         header.client_id = client_id if client_id
 
-        # Set a dest header for linkerd to determine where to route
-        # this message
-
-        # TODO per client, or even per request mechanism to set this
-        header.dest = "/prod/moby"
+        header.dest = dest if dest
 
         header.write(@oprot)
       end
