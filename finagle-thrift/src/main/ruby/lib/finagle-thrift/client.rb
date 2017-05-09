@@ -25,6 +25,8 @@ module FinagleThrift
 
         header.client_id = client_id if client_id
 
+        header.dest = dest if dest
+
         header.write(@oprot)
       end
       Trace.record(Trace::Annotation.new(Trace::Annotation::CLIENT_SEND, self.endpoint))
